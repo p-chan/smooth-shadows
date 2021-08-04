@@ -29,7 +29,7 @@ type Arguments = {
   output?: 'css'
 }
 
-export const smoothShadow = ({ layers, alpha, offset, blur, output }: Arguments) => {
+export const smoothShadows = ({ layers, alpha, offset, blur, output }: Arguments) => {
   const alphaDefaultEasing = 'easeInOutQuad'
   const offsetDefaultEasing = 'easeInExpo'
   const blurDefaultEasing = 'easeInQuint'
