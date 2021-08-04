@@ -1,0 +1,37 @@
+{
+  "name": "smooth-shadows",
+  "version": "0.1.0",
+  "description": "A library to generate smooth shadows with multiple layers",
+  "keywords": [
+    "shadow",
+    "shadows",
+    "smooth-shadows"
+  ],
+  "homepage": "https://github.com/p-chan/smooth-shadows#readme",
+  "bugs": {
+    "url": "https://github.com/p-chan/smooth-shadows/issues"
+  },
+  "license": "MIT",
+  "author": "P-Chan",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p-chan/smooth-shadows.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"./src/**/*\""
+  },
+  "dependencies": {
+    "bezier-easing": "^2.1.0",
+    "parse-unit": "^1.0.1",
+    "round-to": "^5.0.0"
+  },
+  "devDependencies": {
+    "@stardust-configs/prettier-config": "^0.1.1",
+    "@stardust-configs/tsconfig": "^0.1.1",
+    "@types/parse-unit": "^1.0.1",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
+  }
+}
