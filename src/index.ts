@@ -11,7 +11,7 @@ type Options = Partial<{
     blur: Easing['name'] | CubicBezier
     alpha: Easing['name'] | CubicBezier
   }>
-  output: 'css' | 'js'
+  output: 'array' | 'object' | 'css'
 }>
 
 export const smoothShadows = (
@@ -34,7 +34,7 @@ export const smoothShadows = (
     blur: options?.easings?.blur || 'easeInQuint',
     alpha: options?.easings?.alpha || 'easeInOutQuad',
   }
-  const output = (options && options.output) || 'js'
+  const output = (options && options.output) || 'array'
 
   const offsetBezierEasing = BezierEasing(
     ...(typeof easings.offset === 'string' ? easingToCubicBezier(easings.offset) : easings.offset)
@@ -73,5 +73,9 @@ export const smoothShadows = (
       .join(', ')
   }
 
-  return shadows
+  if (output === 'object') return shadows
+
+  return shadows.map(({ x, y, blur, spread, color }) => {
+    return [x, y, blur, spread, [color.red, color.green, color.blue, color.alpha]]
+  })
 }
