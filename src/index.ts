@@ -4,66 +4,71 @@ import roundTo from 'round-to'
 
 import { CubicBezier, Easing, easingToCubicBezier } from './easings'
 
-type Arguments = {
+type Options = Partial<{
   layers: number
-  alpha:
-    | number
-    | {
-        value: number
-        easing?: Easing['name'] | CubicBezier
-      }
-  offset:
-    | string
-    | {
-        value: number
-        unit: string
-        easing?: Easing['name'] | CubicBezier
-      }
-  blur:
-    | string
-    | {
-        value: number
-        unit: string
-        easing?: Easing['name'] | CubicBezier
-      }
-  output?: 'css'
-}
+  easings: Partial<{
+    offset: Easing['name'] | CubicBezier
+    blur: Easing['name'] | CubicBezier
+    alpha: Easing['name'] | CubicBezier
+  }>
+  output: 'css' | 'js'
+}>
 
-export const smoothShadows = ({ layers, alpha, offset, blur, output }: Arguments) => {
-  const alphaDefaultEasing = 'easeInOutQuad'
-  const offsetDefaultEasing = 'easeInExpo'
-  const blurDefaultEasing = 'easeInQuint'
+export const smoothShadows = (
+  x: 0 | string,
+  y: 0 | string,
+  blur: 0 | string,
+  spread: 0 | string,
+  color: [number, number, number, number],
+  options?: Options
+) => {
+  const [xValue, xUnit] = typeof x === 'string' ? parseUnit(x) : [x]
+  const [yValue, yUnit] = typeof y === 'string' ? parseUnit(y) : [y]
+  const [blurValue, blurUnit] = typeof blur === 'string' ? parseUnit(blur) : [blur]
+  const [spreadValue, spreadUnit] = typeof spread === 'string' ? parseUnit(spread) : [spread]
+  const [redValue, greenValue, blueValue, alphaValue] = color
 
-  const alphaValue = typeof alpha === 'number' ? alpha : alpha.value
-  const [offsetValue, offsetUnit] = typeof offset === 'string' ? parseUnit(offset) : [offset.value, offset.unit]
-  const [blurValue, blurUnit] = typeof blur === 'string' ? parseUnit(blur) : [blur.value, blur.unit]
+  const layers = (options && options.layers) || 4
+  const easings = {
+    offset: options?.easings?.offset || 'easeInExpo',
+    blur: options?.easings?.blur || 'easeInQuint',
+    alpha: options?.easings?.alpha || 'easeInOutQuad',
+  }
+  const output = (options && options.output) || 'js'
 
-  const alphaEasing = typeof alpha === 'number' ? alphaDefaultEasing : alpha.easing || alphaDefaultEasing
-  const offsetEasing = typeof offset === 'string' ? offsetDefaultEasing : offset.easing || offsetDefaultEasing
-  const blurEasing = typeof blur === 'string' ? blurDefaultEasing : blur.easing || blurDefaultEasing
-
-  const alphaCubicBezier = typeof alphaEasing === 'string' ? easingToCubicBezier(alphaEasing) : alphaEasing
-  const offsetCubicBezier = typeof offsetEasing === 'string' ? easingToCubicBezier(offsetEasing) : offsetEasing
-  const blurCubicBezier = typeof blurEasing === 'string' ? easingToCubicBezier(blurEasing) : blurEasing
-
-  const alphaBezierEasing = BezierEasing(...alphaCubicBezier)
-  const offsetBezierEasing = BezierEasing(...offsetCubicBezier)
-  const blurBezierEasing = BezierEasing(...blurCubicBezier)
+  const offsetBezierEasing = BezierEasing(
+    ...(typeof easings.offset === 'string' ? easingToCubicBezier(easings.offset) : easings.offset)
+  )
+  const blurBezierEasing = BezierEasing(
+    ...(typeof easings.blur === 'string' ? easingToCubicBezier(easings.blur) : easings.blur)
+  )
+  const alphaBezierEasing = BezierEasing(
+    ...(typeof easings.alpha === 'string' ? easingToCubicBezier(easings.alpha) : easings.alpha)
+  )
 
   const shadows = [...Array(layers)].map((_, index) => {
     const progress = (index + 1) / layers
 
     return {
-      alpha: roundTo(alphaBezierEasing(progress) * alphaValue, 3),
-      offset: `${roundTo(offsetBezierEasing(progress) * offsetValue, 3)}${offsetUnit}`,
-      blur: `${roundTo(blurBezierEasing(progress) * blurValue, 3)}${blurUnit}`,
+      x: xValue !== 0 ? `${roundTo(offsetBezierEasing(progress) * xValue, 3)}${xUnit}` : 0,
+      y: yValue !== 0 ? `${roundTo(offsetBezierEasing(progress) * yValue, 3)}${yUnit}` : 0,
+      blur: blurValue !== 0 ? `${roundTo(blurBezierEasing(progress) * blurValue, 3)}${blurUnit}` : 0,
+      spread: spreadValue !== 0 ? `${roundTo(spreadValue, 3)}${spreadUnit}` : 0,
+      color: {
+        red: redValue,
+        green: greenValue,
+        blue: blueValue,
+        alpha: roundTo(alphaBezierEasing(progress) * alphaValue, 3),
+      },
     }
   })
 
   if (output === 'css') {
     return shadows
       .map((shadow) => {
-        return `0 ${shadow.offset} ${shadow.blur} rgba(0, 0, 0, ${shadow.alpha})`
+        return `${shadow.x} ${shadow.y} ${shadow.blur}${shadow.spread ? ` ${shadow.spread}` : ''} rgba(${
+          shadow.color.red
+        }, ${shadow.color.green}, ${shadow.color.blue}, ${shadow.color.alpha})`
       })
       .join(', ')
   }
