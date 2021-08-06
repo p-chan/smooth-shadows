@@ -13,7 +13,11 @@
   },
   "license": "MIT",
   "author": "P-Chan",
-  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/p-chan/smooth-shadows.git"
