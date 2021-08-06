@@ -24,7 +24,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write \"./src/**/*\""
+    "clean": "rimraf ./dist",
+    "format": "prettier --write \"./src/**/*\"",
+    "prebuild": "npm run clean",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "bezier-easing": "^2.1.0",
@@ -36,6 +39,7 @@
     "@stardust-configs/tsconfig": "^0.1.1",
     "@types/parse-unit": "^1.0.1",
     "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
     "typescript": "^4.3.5"
   }
 }
