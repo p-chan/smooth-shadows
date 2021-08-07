@@ -27,7 +27,8 @@
     "clean": "rimraf ./dist",
     "format": "prettier --write \"./src/**/*\"",
     "prebuild": "npm run clean",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "tsc --noEmit && jest"
   },
   "dependencies": {
     "bezier-easing": "^2.1.0",
@@ -35,9 +36,15 @@
     "round-to": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-typescript": "^7.15.0",
     "@stardust-configs/prettier-config": "^0.1.1",
     "@stardust-configs/tsconfig": "^0.1.1",
+    "@types/jest": "^26.0.24",
     "@types/parse-unit": "^1.0.1",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.3.5"
