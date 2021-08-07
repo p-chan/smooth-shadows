@@ -50,10 +50,10 @@ export const smoothShadows = (
     const progress = (index + 1) / layers
 
     return {
-      x: xValue !== 0 ? `${roundTo(offsetBezierEasing(progress) * xValue, 3)}${xUnit}` : 0,
-      y: yValue !== 0 ? `${roundTo(offsetBezierEasing(progress) * yValue, 3)}${yUnit}` : 0,
-      blur: blurValue !== 0 ? `${roundTo(blurBezierEasing(progress) * blurValue, 3)}${blurUnit}` : 0,
-      spread: spreadValue !== 0 ? `${roundTo(spreadValue, 3)}${spreadUnit}` : 0,
+      x: xValue !== 0 ? `${roundTo(offsetBezierEasing(progress) * xValue, 3)}${xUnit}` : (0 as const),
+      y: yValue !== 0 ? `${roundTo(offsetBezierEasing(progress) * yValue, 3)}${yUnit}` : (0 as const),
+      blur: blurValue !== 0 ? `${roundTo(blurBezierEasing(progress) * blurValue, 3)}${blurUnit}` : (0 as const),
+      spread: spreadValue !== 0 ? `${roundTo(spreadValue, 3)}${spreadUnit}` : (0 as const),
       color: {
         red: redValue,
         green: greenValue,
