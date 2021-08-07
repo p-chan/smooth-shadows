@@ -30,9 +30,9 @@ export const smoothShadows = (
 
   const layers = (options && options.layers) || 4
   const easings = {
-    offset: options?.easings?.offset || 'easeInExpo',
-    blur: options?.easings?.blur || 'easeInQuint',
-    alpha: options?.easings?.alpha || 'easeInOutQuad',
+    offset: options?.easings?.offset || [0.65, 0.1, 0.9, 0.4],
+    blur: options?.easings?.blur || [0.65, 0.2, 0.9, 0.4],
+    alpha: options?.easings?.alpha || [0.2, 0.6, 0.9, 0.4],
   }
   const output = (options && options.output) || 'array'
 
