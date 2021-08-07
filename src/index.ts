@@ -4,6 +4,9 @@ import roundTo from 'round-to'
 
 import { CubicBezier, Easing, easingToCubicBezier } from './easings'
 
+type CSSLength = 0 | string
+type CSSColorRGBA = [number, number, number, number]
+
 type Options = Partial<{
   layers: number
   easings: Partial<{
@@ -15,11 +18,11 @@ type Options = Partial<{
 }>
 
 export const smoothShadows = (
-  x: 0 | string,
-  y: 0 | string,
-  blur: 0 | string,
-  spread: 0 | string,
-  color: [number, number, number, number],
+  x: CSSLength,
+  y: CSSLength,
+  blur: CSSLength,
+  spread: CSSLength,
+  color: CSSColorRGBA,
   options?: Options
 ) => {
   const [xValue, xUnit] = typeof x === 'string' ? parseUnit(x) : [x]
