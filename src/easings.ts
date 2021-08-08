@@ -32,7 +32,7 @@ export type Easing = {
 /**
  * @see https://easings.net/
  */
-const easings: Easing[] = [
+export const easings: Easing[] = [
   {
     name: 'easeInSine',
     cubicBezier: [0.12, 0, 0.39, 0],

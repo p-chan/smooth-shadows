@@ -6,5 +6,5 @@
     "baseUrl": "./"
   },
   "include": ["./src/**/*"],
-  "exclude": ["./test/**/*.test.ts"]
+  "exclude": ["./test/**/*.test.ts", "./scripts/**.*.ts"]
 }

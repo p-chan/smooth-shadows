@@ -4,11 +4,11 @@ import roundTo from 'round-to'
 
 import { CubicBezier, Easing, easingToCubicBezier } from './easings'
 
-type CSSLength = 0 | string
-type CSSColorRGBA = [number, number, number, number]
+export type CSSLength = 0 | string
+export type CSSColorRGBA = [number, number, number, number]
 
-type SmoothShadowsArray = [CSSLength, CSSLength, CSSLength, CSSLength, CSSColorRGBA]
-type SmoothShadowsObject = {
+export type SmoothShadowsArray = [CSSLength, CSSLength, CSSLength, CSSLength, CSSColorRGBA]
+export type SmoothShadowsObject = {
   x: CSSLength
   y: CSSLength
   blur: CSSLength
@@ -20,15 +20,15 @@ type SmoothShadowsObject = {
     alpha: number
   }
 }
-type SmoothShadowsCSS = string
+export type SmoothShadowsCSS = string
 
-type LayersOption = number
-type EasingsOption = Partial<{
+export type LayersOption = number
+export type EasingsOption = Partial<{
   offset: Easing['name'] | CubicBezier
   blur: Easing['name'] | CubicBezier
   alpha: Easing['name'] | CubicBezier
 }>
-type OutputOption = 'array' | 'object' | 'css'
+export type OutputOption = 'array' | 'object' | 'css'
 
 function smoothShadows(
   x: CSSLength,

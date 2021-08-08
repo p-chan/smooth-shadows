@@ -1,2 +1,1 @@
-export * from './shadows'
-export * from './easings'
+export { smoothShadows } from './shadows'
