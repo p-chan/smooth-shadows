@@ -57,13 +57,13 @@ smoothShadows(x, y, blur, spread, color, options)
   - `easings` (optional):
     - `offset` (optional): easing of `x` and `y`, specify [easing functions](https://easings.net/) or [cubic-bezier](https://cubic-bezier.com/)
       - Type: `string | [number, number, number, number]`
-      - Default: [`[0.2, 0.6, 0.9, 0.4]`](https://cubic-bezier.com/#.2,.6,.9,.4)
+      - Default: [`[0.65, 0.1, 0.9, 0.4]`](https://cubic-bezier.com/#.65,.1,.9,.4)
     - `blur` (optional): easing of blur, specify [easing functions](https://easings.net/) or [cubic-bezier](https://cubic-bezier.com/)
       - Type: `string | [number, number, number, number]`
       - Default: [`[0.65, 0.2, 0.9, 0.4]`](https://cubic-bezier.com/#.65,.2,.9,.4)
     - `alpha` (optional): easing of alpha, specify [easing functions](https://easings.net/) or [cubic-bezier](https://cubic-bezier.com/)
       - Type: `string | [number, number, number, number]`
-      - Default: [`[0.65, 0.1, 0.9, 0.4]`](https://cubic-bezier.com/#.65,.1,.9,.4)
+      - Default: [`[0.2, 0.6, 0.9, 0.4]`](https://cubic-bezier.com/#.2,.6,.9,.4)
   - `output` (optional): return values
     - Type: `'array' | 'object' | 'css'`
     - Default: `'array'`
