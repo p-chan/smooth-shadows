@@ -4,7 +4,7 @@ import roundTo from 'round-to'
 
 import { CubicBezier, Easing, easingToCubicBezier } from './easings'
 
-export type CSSLength = 0 | string
+export type CSSLength = string | 0
 export type CSSColorRGBA = [number, number, number, number]
 
 export type SmoothShadowsArray = [CSSLength, CSSLength, CSSLength, CSSLength, CSSColorRGBA]
