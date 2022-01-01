@@ -49,7 +49,7 @@
     "@types/parse-unit": "1.0.1",
     "babel-jest": "27.4.2",
     "jest": "27.4.2",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "rimraf": "3.0.2",
     "standard-version": "9.3.2",
     "ts-node": "10.4.0",
