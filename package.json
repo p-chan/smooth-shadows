@@ -45,7 +45,7 @@
     "@babel/preset-typescript": "7.23.3",
     "@stardust-configs/prettier-config": "0.1.1",
     "@stardust-configs/tsconfig": "0.4.0",
-    "@types/jest": "29.5.7",
+    "@types/jest": "29.5.10",
     "@types/parse-unit": "1.0.2",
     "babel-jest": "29.7.0",
     "jest": "29.7.0",
