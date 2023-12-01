@@ -2119,10 +2119,10 @@
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz#d3357479a0fdfdd5907fe67e17e0a85c906e1301"
   integrity sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==
 
-"@types/parse-unit@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@types/parse-unit/-/parse-unit-1.0.2.tgz#58ef0dc29b28894442a18eb487419243436c064b"
-  integrity sha512-dBoMlzDw34naDinNqckUDyspUi6pHvPOOI/yo5FUJskJkqvmTYt+j/O6niOlosYGte+RClCOaGDNFcnlbobZ7g==
+"@types/parse-unit@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@types/parse-unit/-/parse-unit-1.0.3.tgz#87aa885c0c6a18b927cdf5272ba4b97e80d88408"
+  integrity sha512-huu6LsYM5YB1cJnMXZuZ3zjQ7pakbnGu0WRq+QQ7jmDDVenenpG8B5DFAcbPMf2RTRUanWt/GvWMm/bW5yd/UA==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
