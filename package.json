@@ -37,7 +37,7 @@
   "dependencies": {
     "bezier-easing": "^2.1.0",
     "parse-unit": "^1.0.1",
-    "round-to": "^5.0.0"
+    "round-to": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.23.7",
