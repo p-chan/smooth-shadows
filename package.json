@@ -43,7 +43,7 @@
     "@babel/core": "7.23.7",
     "@babel/preset-env": "7.23.7",
     "@babel/preset-typescript": "7.23.3",
-    "@stardust-configs/prettier-config": "0.1.1",
+    "@stardust-configs/prettier-config": "0.3.0",
     "@stardust-configs/tsconfig": "0.4.0",
     "@types/jest": "29.5.11",
     "@types/parse-unit": "1.0.3",

@@ -2019,10 +2019,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@stardust-configs/prettier-config@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@stardust-configs/prettier-config/-/prettier-config-0.1.1.tgz#b79ee6bcd84c926501cd0f4e3b0f02f2bfb57415"
-  integrity sha512-KVNeDikcETcc9IuK69kk66O01I/8TdtzY6T4RTcjoqPJtD1NLe/cQkWTTAY6vqXZ8blOwexkOLFv11pXrZTjRA==
+"@stardust-configs/prettier-config@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@stardust-configs/prettier-config/-/prettier-config-0.3.0.tgz#8109c7ed0de4301ee544988a93212c8f0743c400"
+  integrity sha512-pixGCsdTBO4MGkwNL6YNNSypP4dXmeog6bvhS2vXDfNArJR84pLWAhAJFApkEfWf/Gaok0xN2lPRGeF297VBng==
 
 "@stardust-configs/tsconfig@0.4.0":
   version "0.4.0"
