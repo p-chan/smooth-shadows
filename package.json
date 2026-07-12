@@ -35,7 +35,7 @@
     "version:patch": "standard-version -r patch"
   },
   "dependencies": {
-    "bezier-easing": "^2.1.0",
+    "bezier-easing": "^3.0.0",
     "parse-unit": "^1.0.1",
     "round-to": "^5.0.0"
   },
